@@ -2,8 +2,7 @@
 
 # Gives the translation status of the specified apps and languages.
 #
-# Copyright 2013 Google Inc.
-# http://blockly.googlecode.com/
+# Copyright 2013 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,6 +17,8 @@
 # limitations under the License.
 
 """Produce a table showing the translation status of each app by language.
+From the /json directory, run:
+python ../i18n/status.py --key_file keys.json --output html *.json > status.html
 
 @author Ellen Spertus (ellen.spertus@gmail.com)
 """
@@ -77,11 +78,11 @@ def output_as_html(prefix_counts):
 
   Specifically, a sortable HTML table is produced, where the app names
   are column headers, and one language is output per row.  Entries
-  are color-coded based on the percent completeness.
+  are colour-coded based on the percent completeness.
 
   Args:
       prefix_counts: A dictionary of dictionaries, where keys to the outer
-          dictionary are ISO 639 language names (e.g., 'pt') or the special
+          dictionary are ISO 639 language names (e.g. 'pt') or the special
           string TOTAL, used to indicate the total number of messages.  Keys
           of the inner dictionaries are prefixes (app names or "apps"), and
           values are their count for the given language.
@@ -112,10 +113,10 @@ def output_as_html(prefix_counts):
     if lang != TOTAL:
       print('<tr><td>' + lang + '</td>')
       for app in apps:
-        print '<td>'
-        print generateNumberAsPercent(prefix_counts[lang].get(app, 0),
-                                      prefix_counts[TOTAL][app])
-        print '</td>'
+        print('<td>')
+        print(generateNumberAsPercent(prefix_counts[lang].get(app, 0),
+                                      prefix_counts[TOTAL][app]))
+        print('</td>')
       print('</tr>')
   print('</tbody><tfoot><tr><td>ALL</td><td>')
   print('</td><td>'.join([str(prefix_counts[TOTAL][app]) for app in apps]))

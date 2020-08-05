@@ -2,8 +2,8 @@
 
 # Code shared by translation conversion scripts.
 #
-# Copyright 2013 Google Inc.
-# http://blockly.googlecode.com/
+# Copyright 2013 Google LLC
+# https://developers.google.com/blockly/
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ def _create_qqq_file(output_dir):
     """
     qqq_file_name = os.path.join(os.curdir, output_dir, 'qqq.json')
     qqq_file = codecs.open(qqq_file_name, 'w', 'utf-8')
-    print 'Created file: ' + qqq_file_name
+    print('Created file: ' + qqq_file_name)
     qqq_file.write('{\n')
     return qqq_file
 
@@ -98,16 +98,16 @@ def _create_lang_file(author, lang, output_dir):
     """
     lang_file_name = os.path.join(os.curdir, output_dir, lang + '.json')
     lang_file = codecs.open(lang_file_name, 'w', 'utf-8')
-    print 'Created file: ' + lang_file_name
+    print('Created file: ' + lang_file_name)
     # string.format doesn't like printing braces, so break up our writes.
-    lang_file.write("""{
-\t"@metadata": {
-\t\t"author": "%s",
-\t\t"lastupdated": "%s",
-\t\t"locale": "%s",
+    lang_file.write('{\n\t"@metadata": {')
+    lang_file.write("""
+\t\t"author": "{0}",
+\t\t"lastupdated": "{1}",
+\t\t"locale": "{2}",
 \t\t"messagedocumentation" : "qqq"
-\t},
-""" % (author, str(datetime.now()), lang))
+""".format(author, str(datetime.now()), lang))
+    lang_file.write('\t},\n')
     return lang_file
 
 
@@ -138,7 +138,7 @@ def _create_key_file(output_dir):
     key_file_name = os.path.join(os.curdir, output_dir, 'keys.json')
     key_file = open(key_file_name, 'w')
     key_file.write('{\n')
-    print 'Created file: ' + key_file_name
+    print('Created file: ' + key_file_name)
     return key_file
 
 

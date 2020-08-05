@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"Chmee2",
-			"Michaelbrabec",
-			"Vorkronor",
-			"Macofe",
 			"Clon",
 			"DaBler",
-			"Ilimanaq29"
+			"Dvorapa",
+			"Ilimanaq29",
+			"Macofe",
+			"Michaelbrabec",
+			"Vorkronor"
 		]
 	},
 	"Games.name": "Hry Blockly",
@@ -50,7 +51,7 @@
 	"Games.helpAbort": "Tato úroveň je velmi obtížná. Chceš ji přeskočit a pokračovat na další hru? Kdykoli se můžeš vrátit zpět.",
 	"Index.clear": "Smazat všechna řešení?",
 	"Index.subTitle": "Hry budoucích programátorů.",
-	"Index.moreInfo": "Více informací ...",
+	"Index.moreInfo": "Informace pro vyučující...",
 	"Index.startOver": "Chceš začít znovu?",
 	"Index.clearData": "Vymazat data",
 	"Puzzle.animal1": "Kachna",
@@ -168,7 +169,7 @@
 	"Turtle.helpText8": "Nakreslení 360 bílých čar bude vypadat jako měsíc v úplňku.",
 	"Turtle.helpText9": "Přidejte černý kruh tak, že z úplňku zbude srpek?",
 	"Turtle.helpText10": "Kreslete, co chcete. Máte obrovské množství nových bloků které si můžete prohlédnout. Bavte se!",
-	"Turtle.helpText10Reddit": "Použijte tlačítko &quot;Viz Galerie&quot;, aby jste viděli, co vytvořili ostatní lidé. Nakreslit-li něco zajímavého, použijte tlačítko &quot;Odeslat do Galerie&quot; pro publikování.",
+	"Turtle.helpText10Reddit": "Použijte tlačítko \"Viz Galerie\", aby jste viděli, co vytvořili ostatní lidé. Nakreslit-li něco zajímavého, použijte tlačítko \"Odeslat do Galerie\" pro publikování.",
 	"Turtle.helpToolbox": "Vyberte kategorii pro zobrazení bloků.",
 	"Movie.x": "x",
 	"Movie.y": "y",
@@ -204,7 +205,7 @@
 	"Movie.helpText8": "Použij 'pokud' blok a nakresli červené a modré míče pro první polovinu filmu. Pak nakresli zelený míč pro druhou polovinu filmu.",
 	"Movie.helpText9": "Dokážeš vytvořit míč který sleduje drát? Drát je již nakreslen. Pokud zvládneš tohle, můžeš udělat cokoli.",
 	"Movie.helpText10": "Vytvoř si vlastní film. Máš mnoho nových bloků které může prozkoumat. Bav se!",
-	"Movie.helpText10Reddit": "Použijte tlačítko &quot;Viz Galerie&quot;, aby jste viděli, co vytvořili ostatní lidé. Nakreslíte-li něco zajímavého, použijte tlačítko &quot;Odeslat do Galerie&quot; pro publikování.",
+	"Movie.helpText10Reddit": "Použijte tlačítko \"Viz Galerie\", aby jste viděli, co vytvořili ostatní lidé. Nakreslíte-li něco zajímavého, použijte tlačítko \"Odeslat do Galerie\" pro publikování.",
 	"Pond.scanTooltip": "Hledá nepřítele. Zadej směr (0-360). Vráti vzdálenost od najbližšího nepřítele v daném směru. Vráti nekonečno pokud v daném směru není žádný nepřítel.",
 	"Pond.cannonTooltip": "Vypálí z děla. Zadej směr (0-360) a sílu (0-70).",
 	"Pond.swimTooltip": "Plavat vpřed. Určit směr (0-360).",

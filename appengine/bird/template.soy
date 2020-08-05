@@ -29,32 +29,15 @@
  */
 {template .start}
   {call .messages /}
-  <table width="100%">
-    <tr>
-      <td>
-        <h1>
-          {call BlocklyGames.soy.titleSpan}
-            {param appName}
-              {msg meaning="Games.bird" desc="IBID"}Bird{/msg}
-            {/param}
-          {/call}
-          {call BlocklyGames.soy.levelLinks}
-            {param level: $ij.level /}
-            {param maxLevel: $ij.maxLevel /}
-            {param lang: $ij.lang /}
-            {param suffix}{/param}
-          {/call}
-        </h1>
-      </td>
-      <td class="farSide">
-        <select id="languageMenu"></select>
-        &nbsp;
-        <button id="linkButton" title="{msg meaning="Games.linkTooltip" desc="IBID"}Save and link to blocks.{/msg}">
-          <img src="common/1x1.gif" class="link icon21">
-        </button>
-      </td>
-    </tr>
-  </table>
+  {call BlocklyGames.soy.headerBar}
+    {param appName}
+      {msg meaning="Games.bird" desc="IBID"}Bird{/msg}
+    {/param}
+    {param levelLinkSuffix}{/param}
+    {param hasLinkButton: true /}
+    {param hasHelpButton: false /}
+    {param farLeftHtml}{/param}
+  {/call}
 
   <div id="visualization">
     <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svgBird" width="400px" height="400px">
@@ -91,13 +74,17 @@
       </td><td>
         <div class="farSide"><img src="bird/help_heading.png" class="mirrorImg" height=27 width=141></div>
       </td></tr><tr><td>
-        {msg meaning="Bird.helpHeading" desc="callout - This is shown as instruction for the first level."}Change the heading angle to make the bird get the worm and land in her nest.{/msg}
+        {msg meaning="Bird.helpHeading" desc="callout - This is shown as instruction for the first level."}
+          Change the heading angle to make the bird get the worm and land in her nest.
+        {/msg}
       </td></tr></table>
     {elseif $ij.level == 2}
       <table><tr><td>
         <img src="common/help.png">
       </td><td>
-        {msg meaning="Bird.helpHasWorm" desc="callout - This is shown when the 'does not have worm' block is introduced."}Use this block to go in one heading if you have the worm, or a different heading if you don't have the worm.{/msg}
+        {msg meaning="Bird.helpHasWorm" desc="callout - This is shown when the 'does not have worm' block is introduced."}
+          Use this block to go in one heading if you have the worm, or a different heading if you don't have the worm.
+        {/msg}
       </td><td>
         <img src="bird/help_up.png">
       </td></tr></table>
@@ -105,7 +92,9 @@
       <table><tr><td>
         <img src="common/help.png">
       </td><td>
-        {msg meaning="Bird.helpX" desc="callout - This is shown when the 'x smaller than 50' block is introduced."}'x' is your current horizontal position. Use this block to go in one heading if 'x' is less than a number, or a different heading otherwise.{/msg}
+        {msg meaning="Bird.helpX" desc="callout - This is shown when the 'x smaller than 50' block is introduced."}
+          'x' is your current horizontal position. Use this block to go in one heading if 'x' is less than a number, or a different heading otherwise.
+        {/msg}
       </td><td>
         <img src="bird/help_up.png">
       </td></tr></table>
@@ -113,7 +102,9 @@
       <table><tr><td>
         <img src="bird/help_up.png">
       </td><td>
-        {msg meaning="Bird.helpElse" desc="callout - This is shown when the user first needs to modify an 'if' block."}Click the icon to modify the 'if' block.{/msg}
+        {msg meaning="Bird.helpElse" desc="callout - This is shown when the user first needs to modify an 'if' block."}
+          Click the icon to modify the 'if' block.
+        {/msg}
       </td><td>
         <img src="common/help.png">
       </td></tr></table>
@@ -121,7 +112,9 @@
       <table><tr><td>
         <img src="bird/help_up.png">
       </td><td>
-        {msg meaning="Bird.helpElseIf" desc="callout - This is shown when the user first needs to modify an 'if' block to have an 'else if' and an 'else'."}This level needs both an 'else if' and an 'else' block.{/msg}
+        {{msg meaning="Bird.helpElseIf" desc="callout - This is shown when the user first needs to modify an 'if' block to have an 'else if' and an 'else'.\n\nMake sure to translate consistently with:\n* {lb}{lb}msg-blockly|CONTROLS IF MSG ELSEIF{rb}{rb}\n* {lb}{lb}msg-blockly|CONTROLS IF MSG ELSE{rb}{rb}"}}
+          This level needs both an 'else if' and an 'else' block.
+        {{/msg}}
       </td><td>
         <img src="common/help.png">
       </td></tr></table>
@@ -129,7 +122,9 @@
       <table><tr><td>
         <img src="bird/help_up.png">
       </td><td>
-        {msg meaning="Bird.helpAnd" desc="callout - This is shown to indroduce the user to the logical 'and' block."}The 'and' block is true only if both its inputs are true.{/msg}
+        {{msg meaning="Bird.helpAnd" desc="callout - This is shown to introduce the user to the logical 'and' block.\n\nMake sure to translate consistently with:\n* {lb}{lb}msg-blockly|LOGIC OPERATION AND{rb}{rb}"}}
+          The 'and' block is true only if both its inputs are true.
+        {{/msg}}
       </td><td>
         <img src="common/help.png">
       </td></tr></table>
@@ -140,7 +135,9 @@
       <table><tr><td>
         <img src="bird/help_mutator.png" class="mirrorImg" height=58 width=107>
       </td><td>
-        {msg meaning="Bird.helpMutator" desc="callout - This is shown to demonstrate how to drag a block."}Drag an 'else' block into the 'if' block.{/msg}
+        {{msg meaning="Bird.helpMutator" desc="callout - This is shown to demonstrate how to drag a block.\n\nTranslate consistently with:\n* {lb}{lb}msg-blockly|CONTROLS IF MSG ELSE{rb}{rb}\n* {lb}{lb}msg-blockly|CONTROLS IF MSG IF{rb}{rb}"}}
+          Drag an 'else' block into the 'if' block.
+        {{/msg}}
       </td></tr></table>
     </div>
   {/if}
@@ -150,7 +147,7 @@
  * Toolboxes for each level.
  */
 {template .toolbox}
-  <xml id="toolbox" style="display: none;">
+  <xml id="toolbox" xmlns="https://developers.google.com/blockly/xml">
     <block type="bird_heading"></block>
     {if $ij.level >= 2}
       {if $ij.level == 4 or $ij.level == 5}
