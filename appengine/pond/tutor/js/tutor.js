@@ -135,14 +135,16 @@ Pond.Tutor.init = function() {
   onresize(null);
 
   for (var avatarData, i = 0; (avatarData = Pond.Tutor.PLAYERS[i]); i++) {
+    var name = BlocklyGames.getMsg(avatarData.name);
+    var avatar = new Pond.Avatar(name, avatarData.start, avatarData.damage,
+        !code, Pond.Battle);
     if (avatarData.code) {
       var div = document.getElementById(avatarData.code);
       var code = div.textContent;
+      avatar.setCode(undefined, code, code);
     } else {
-      var code = Pond.Tutor.getJsCode;
+      Pond.currentAvatar = avatar;
     }
-    var name = BlocklyGames.getMsg(avatarData.name);
-    Pond.Battle.addAvatar(name, code, avatarData.start, avatarData.damage);
   }
   Pond.reset();
 };
@@ -158,6 +160,12 @@ Pond.Tutor.getJsCode = function() {
   var code = BlocklyInterface.getJsCode();
   BlocklyInterface.executedJsCode = code;
   BlocklyInterface.executedCode = BlocklyInterface.getCode();
+  try {
+    code = BlocklyAce.transpileToEs5(code) || code;
+  } catch (e) {
+    alert(e);
+    throw Error('Duck "' + this.name + '" has error in code:\n' + e);
+  }
   return code;
 };
 
